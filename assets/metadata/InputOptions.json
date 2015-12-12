@@ -1,0 +1,221 @@
+{
+    "ageClass": [
+        "Egg",
+        "Larvae",
+        "Adult"
+    ],
+    "callingIndex": [
+        "0 - Not Heard",
+        "1 - Individuals Can Be Counted; There Is Space Between Calls",
+        "2 - Calls of Individuals Can Be Distinguished. But There Is Some Overlapping of Calls",
+        "3 - Full Chorus; Calls Are Constant, Continuous and Overlapping"
+    ],
+    "captureMethodLizard": [
+        "1 - Hand",
+        "2 - Lasso",
+        "3 - Other"
+    ],
+    "captureMethodSnake": [
+        "1 - Road",
+        "2 - Observed While Moving",
+        "3 - Visual Search Hand Capture",
+        "4 - Drift Fence Funnel Trap",
+        "5 - Coverboard Plywood",
+        "6 Coverboard Tin",
+        "7 -",
+        "8 - Aquatic Minnow Trap",
+        "9 -",
+        "10 - Visual Search Did Not Handle",
+        "11 - Snake Stick",
+        "12 -",
+        "13 - Other"
+    ],
+    "captureMethodTrap": [
+        "Trap",
+        "Leaf Pack",
+        "Dip Net",
+        "Other"
+    ],
+    "captureMethodTurtle": [
+        "1 - Road Capture",
+        "2 - Observed While Moving",
+        "3 - Visual Search (Found by Looking)",
+        "4 - Incidental",
+        "5 - Radio Signal",
+        "6 - Dog (Located by a Dog)",
+        "7 - Turtle Trap",
+        "8 - Other"
+    ],
+    "confidenceLevel": [
+        "1 - Certain",
+        "2 - Not Positive",
+        "3 - Guessing"
+    ],
+    "dayOfWeek": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ],
+    "gender": [
+        "Male",
+        "Female",
+        "Unable to Identify"
+    ],
+    "gravid": [
+        "Yes",
+        "No",
+        "Unknown",
+        "N/A"
+    ],
+    "habitat": [
+        "1 - Road",
+        "2 - Field/Forest Edge (within 6m of Edge)",
+        "3 - Field",
+        "4 - Pine Forest",
+        "5 - Hardwood Forest",
+        "6 - Stream or Stream Bank",
+        "7 - Open Wetland",
+        "8 - Forested Wetland",
+        "9 - Lake",
+        "10 - Other"
+    ],
+    "lifeStage": [
+        "Egg",
+        "Hatchling",
+        "Small Juvenile",
+        "Large Juvenile",
+        "Adult",
+        "Unknown"
+    ],
+    "measuringMethod": [
+        "0 - Stretch",
+        "1 - Squeeze Box",
+        "2 - Tube",
+        "3 - Other"
+    ],
+    "moonPhase": [
+        "New",
+        "Waxing Crescent",
+        "First Quarter",
+        "Waxing Gibbous",
+        "Full",
+        "Waning Gibbous",
+        "Last Quarter",
+        "Waning Crescent"
+    ],
+    "moonVisible": [
+        "Yes",
+        "No",
+        "Unsure"
+    ],
+    "organism": [
+        "Frog",
+        "Salamander",
+        "Lizard",
+        "Snake",
+        "Other"
+    ],
+    "present": [
+        "Absent",
+        "Present"
+    ],
+    "skyCode": [
+        "0 - Few Clouds",
+        "1 - Partly Cloudy (Scattered) or Variable Sky",
+        "2 - Cloudy or Overcast",
+        "3 - Fog or Smoke",
+        "4 - Drizzle or Light Rain"
+    ],
+    "skyIndex": [
+        "0 - 0-24% Clouds",
+        "1 - 25-49% Clouds",
+        "2 - 50-74% Clouds",
+        "3 - 75-100% Clouds"
+    ],
+    "status": [
+        "Alive",
+        "Dead"
+    ],
+    "state": [
+        "North Carolina",
+        "Alabama",
+        "Alaska",
+        "Arizona",
+        "Arkansas",
+        "California",
+        "Colorado",
+        "Connecticut",
+        "Delaware",
+        "Florida",
+        "Georgia",
+        "Hawaii",
+        "Idaho",
+        "Illinois",
+        "Indiana",
+        "Iowa",
+        "Kansas",
+        "Kentucky",
+        "Louisiana",
+        "Maine",
+        "Maryland",
+        "Massachusetts",
+        "Michigan",
+        "Minnesota",
+        "Mississippi",
+        "Missouri",
+        "Montana",
+        "Nebraska",
+        "Nevada",
+        "New Hampshire",
+        "New Jersey",
+        "New Mexico",
+        "New York",
+        "North Carolina",
+        "North Dakota",
+        "Ohio",
+        "Oklahoma",
+        "Oregon",
+        "Pennsylvania",
+        "Rhode Island",
+        "South Carolina",
+        "South Dakota",
+        "Tennessee",
+        "Texas",
+        "Utah",
+        "Vermont",
+        "Virginia",
+        "Washington",
+        "West Virginia",
+        "Wisconsin",
+        "Wyoming"
+    ],
+    "weatherConditions": [
+        "1 - No Precipitation",
+        "2 - Light Drizzle/Mist",
+        "3 - Rain"
+    ],
+    "windConditions": [
+        "0 - Calm (< 1 mph)",
+        "1 - Light Air (1-3 mph)",
+        "2 - Light Breeze (4-7 mph), leaves rustle, can feel wind on face",
+        "3 - Gentle Breeze (8-12 mph), leaves and twigs move around, small flag extends"
+    ],
+    "yesNo": [
+        "Yes",
+        "No"
+    ],
+    "yesNoNA": [
+        "Yes",
+        "No",
+        "Does Not Apply"
+    ],
+    "yesNoUnsure": [
+        "Yes",
+        "No",
+        "Unsure"
+    ]
+}

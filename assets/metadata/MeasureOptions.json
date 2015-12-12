@@ -1,0 +1,42 @@
+{
+    "days": {
+        "unit": "dys",
+        "min": 0,
+        "max": 500
+    },
+    "gWeight": {
+        "unit": "g",
+        "min": 0,
+        "max": 5000
+    },
+    "mmHeight": {
+        "unit": "mm",
+        "min": 0,
+        "max": 150
+    },
+    "mmLength": {
+        "unit": "mm",
+        "min": 0,
+        "max": 5000
+    },
+    "mmRain": {
+        "unit": "mm",
+        "min": 0,
+        "max": 1000
+    },
+    "percent": {
+        "unit": "%",
+        "min": 0,
+        "max": 100
+    },
+    "temperature": {
+        "unit": ["°C", "°F"],
+        "min": -50,
+        "max": 150
+    },
+    "void": {
+        "unit": "",
+        "min": 0,
+        "max": 0
+    }
+}

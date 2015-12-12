@@ -1,0 +1,362 @@
+{ "forms": [
+
+    { "name": "Aquatic Turtle", "id": "turtle", "pages": [
+        { "name": "Info", "fields": [
+            { "key": "Common Name: ", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "turtle", "hasDependent": true },
+            { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "turtle" },
+            { "key": "Confidence level of species identification", "id": "confidenceIdentification", "placeholder": "Confidence Level of Species ID", "type": "select", "required": true, "options": "confidenceLevel" },
+            { "key": "Turtle Code:", "id": "turtleCode", "placeholder": "Turtle Code", "type": "turtleId", "required": false },
+            { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true },
+            { "key": "Time:", "id": "time", "placeholder": "Time", "type": "time", "required": true },
+            { "key": "Observer(s)", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+            { "key": "Capture Method:", "id": "captureMethod", "placeholder": "Capture Method", "type": "select", "required": true, "options": "captureMethodTurtle" },
+            { "key": "Capture Method (Other):", "id": "captureMethodOther", "placeholder": "Capture Method (If Other)", "type": "text", "required": false },
+            { "key": "Recapture?", "id": "recapture", "placeholder": "Recapture?", "type": "select", "required": true, "options": "yesNo" }
+        ]},
+        { "name": "Location", "fields": [
+            { "key": "locationHeader", "id": "locationHeader", "placeholder": "Exact Location of Capture", "type": "header" },
+            { "key": "County:", "id": "county", "placeholder": "County", "type": "text", "required": true },
+            { "key": "State:", "id": "state", "placeholder": "State", "type": "select", "required": true, "options": "state" },
+            { "key": "Site:", "id": "site", "placeholder": "Site", "type": "text", "required": true },
+            { "key": "GPS Coordinates:", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true },
+            { "key": "Habitat:", "id": "habitat", "placeholder": "Habitat", "type": "select", "required": true, "options": "habitat" },
+            { "key": "Habitat (Other):", "id": "habitatOther", "placeholder": "Habitat (If Other)", "type": "text", "required": false },
+            { "key": "Location description (including trap number if applicable):", "id": "locationDescription", "placeholder": "Location Description (incl. Trap #)", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Conditions", "fields": [
+            { "key": "Weather Conditions:", "id": "weatherConditions", "placeholder": "Weather Conditions", "type": "select", "required": true, "options": "weatherConditions" },
+            { "key": "Water Temperature:", "id": "waterTemp", "placeholder": "Water Temperature", "type": "temperature", "required": true },
+            { "key": "Air Temperature:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+            { "key": "Days since last rainfall:", "id": "daysSinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+            { "key": "Sky Index:", "id": "skyIndex", "placeholder": "Sky Index", "type": "select", "required": true, "options": "skyIndex" }
+        ]},
+        { "name": "Observations", "fields": [
+            { "key": "Gender of Turtle:", "id": "gender", "placeholder": "Gender of Turtle", "type": "select", "required": true, "options": "gender" },
+            { "key": "Take photo of carapace", "id": "imageCarapace", "placeholder": "Photo of Carapace", "type": "image", "required": false },
+            { "key": "Take photo of plastron", "id": "imagePlastron", "placeholder": "Photo of Plastron", "type": "image", "required": false },
+            { "key": "Description of any injuries, such as bite marks, unusual scute patterns, defects or parasites:", "id": "injuries", "placeholder": "Description of any injuries, such as bite marks, unusual scute patterns, defects, or parasites", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Measurements", "fields": [
+            { "key": "Weight (g):", "id": "weight", "placeholder": "Weight", "type": "measure", "required": true, "options": "gWeight" },
+            { "key": "Total Plastron Length (mm):", "id": "plastronLength", "placeholder": "Plastron Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Maximum Carapace Length (mm):", "id": "carapaceLength", "placeholder": "Carapace Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Overall Width at Widest Point (mm):", "id": "width", "placeholder": "Width at Widest Point", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Shell Height at Tallest Point (mm):", "id": "shellHeight", "placeholder": "Shell Height at Tallest Point", "type": "measure", "required": true, "options": "mmLength" }
+        ]},
+        { "name": "Release", "fields": [
+            { "key": "Date of Release:", "id": "releaseDate", "placeholder": "Release Date", "type": "date", "required": true },
+            { "key": "Time of Release:", "id": "releaseTime", "placeholder": "Release Time", "type": "time", "required": true },
+            { "key": "Was the tutrle released at point of capture?", "id": "releasedAtCapture", "placeholder": "Released at Point of Capture?", "type": "select", "required": true, "options": "yesNo" },
+            { "key": "Please explain:", "id": "releasedExplanation", "placeholder": "Please Explain", "type": "textMulti", "required": false },
+            { "key": "If not released at point of capture, where and how far from the point of capture was turtle released?", "id": "releasedNotAtCaptureExplanation", "placeholder": "If Not Released at Point of Capture, Where and How Far from the Point of Capture Was Turtle Released?", "type": "textMulti", "required": false },
+            { "key": "Additional Comments:", "id": "comments", "placeholder": "Additional Comments", "type": "textMulti", "required": false }
+        ]}
+    ]},
+
+
+    { "name": "Box Turtle", "id": "boxTurtle", "pages": [
+        { "name": "Info", "fields": [
+            { "key": "Site Name:", "id": "site", "placeholder": "Site Name", "type": "text", "required": true },
+            { "key": "Turtle ID (if applicable)", "id": "turtle", "placeholder": "Turtle ID", "type": "turtleId", "required": false },
+            { "key": "Transmitter?", "id": "transmitter", "placeholder": "Transmitter?", "type": "select", "required": true, "options": "yesNo" },
+            { "key": "Observer(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+            { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true, "hasDependent": true },
+            { "key": "Time:", "id": "time", "placeholder": "Time", "type": "time", "required": true },
+            { "key": "Day of Week:", "id": "day", "placeholder": "Day of Week", "type": "select", "required": true, "options": "dayOfWeek" }
+        ]},
+        { "name": "Capture", "fields": [
+            { "key": "Recapture?", "id": "recap", "placeholder": "Recapture?", "type": "select", "required": true, "options": "yesNo" },
+            { "key": "Status:", "id": "status", "placeholder": "Status", "type": "select", "required": true, "options": "status" },
+            { "key": "Capture Method:", "id": "capture", "placeholder": "Capture Method", "type": "select", "required": true, "options": "captureMethodTurtle" },
+            { "key": "Capture Method (Other):", "id": "captureMethodOther", "placeholder": "Capture Method (If Other)", "type": "text", "required": false },
+            { "key": "Coordinates (UTM):", "id": "coordinates", "placeholder": "Coordinates (UTM)", "type": "utm", "required": true },
+            { "key": "GPS Coordinates:", "id": "gps", "placeholder": "Coordinates (GPS)", "type": "gps", "required": true },
+            { "key": "Inside Defined Study Site?", "id": "inside", "placeholder": "Inside Defined Study Site?", "type": "select", "required": true, "options": "yesNoNA" },
+            { "key": "Which Defined Study Site?", "id": "which", "placeholder": "If Yes, Which Defined Study Site?", "type": "text", "required": false }
+        ]},
+        { "name": "Conditions", "fields": [
+            { "key": "areaDesc", "id": "areaDesc", "placeholder": "Location Description", "type": "header" },
+            { "key": "Air Temp:", "id": "air", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+            { "key": "Sky Index:", "id": "sky", "placeholder": "Sky Index", "type": "select", "required": true, "options": "skyIndex" },
+            { "key": "Weather:", "id": "weather", "placeholder": "Weather Conditions", "type": "select", "required": true, "options": "weatherConditions" },
+            { "key": "Days Since Last Rain:", "id": "days", "placeholder": "Days Since Last Rain", "type": "measure", "required": true, "options": "days" }
+        ]},
+        { "name": "Observations", "fields": [
+            { "key": "Life Stage:", "id": "life", "placeholder": "Life Stage", "type": "select", "required": true, "options": "lifeStage" },
+            { "key": "Sex:", "id": "sex", "placeholder": "Sex", "type": "select", "required": true, "options": "gender" },
+            { "key": "Estimated Number of Annuli:", "id": "annuli", "placeholder": "Estimated Number of Annuli", "type": "measure", "required": true, "options": "void" },
+            { "key": "Habitat:", "id": "habitat", "placeholder": "Habitat", "type": "select", "required": true, "options": "habitat" },
+            { "key": "Habitat (Other):", "id": "habitatOther", "placeholder": "Habitat (If Other)", "type": "text", "required": false },
+            { "key": "Take photo of carapace", "id": "carapace", "placeholder": "Photo of Carapace", "type": "image", "required": false },
+            { "key": "Take photo of plastron", "id": "plastron", "placeholder": "Photo of Plastron", "type": "image", "required": false }
+        ]},
+        { "name": "Measurements", "fields": [
+            { "key": "Weight (g):", "id": "weight", "placeholder": "Weight", "type": "measure", "required": true, "options": "gWeight" },
+            { "key": "Straightline CL (mm):", "id": "straightline", "placeholder": "Straightline Carapace Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Max CW (mm):", "id": "max", "placeholder": "Max Carapace Width", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "PL Anterior to hinge (mm):", "id": "plAnterior", "placeholder": "Plastron Length Anterior to Hinge", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "PL hinge to posterior (mm):", "id": "plHinge", "placeholder": "Plastron Length Hinge to Posterior", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Shell height at hinge (mm):", "id": "shell", "placeholder": "Shell Height at Hinge", "type": "measure", "required": true, "options": "mmLength" }
+        ]},
+        { "name": "Notes", "fields": [
+            { "key": "Description of any injuries, such as bite marks, unusual scute patterns, defects or parasites:", "id": "injuries", "placeholder": "Description of any injuries, such as bite marks, unusual scute patterns, defects, or parasites", "type": "textMulti", "required": false },
+            { "key": "Notes (behavior, habitat, etc.)", "id": "notes", "placeholder": "Notes (Behavior, Habitat, etc.)", "type": "textMulti", "required": false }
+        ]}
+    ]},
+
+
+    { "name": "Lizard", "id": "lizard", "pages": [
+        { "name": "Info", "fields": [
+            { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "lizard", "hasDependent": true },
+            { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "lizard" },
+            { "key": "Confidence level of species identification:", "id": "confidenceIdentification", "placeholder": "Confidence Level of Species ID", "type": "select", "required": true, "options": "confidenceLevel" },
+            { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true, "hasDependent": true },
+            { "key": "Time:", "id": "time", "placeholder": "Time", "type": "time", "required": true },
+            { "key": "Day of Week:", "id": "day", "placeholder": "Day of Week", "type": "select", "required": true, "options": "dayOfWeek" },
+            { "key": "Observer(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+            { "key": "Capture Method:", "id": "captureMethod", "placeholder": "Capture Method", "type": "select", "required": true, "options": "captureMethodLizard" },
+            { "key": "Capture Method (Other):", "id": "captureMethodOther", "placeholder": "Capture Method (If Other)", "type": "text", "required": false },
+            { "key": "Status:", "id": "status", "placeholder": "Status", "type": "select", "required": true, "options": "status" }
+        ]},
+        { "name": "Location", "fields": [
+            { "key": "Exact Location of Capture", "id": "areaDesc", "placeholder": "Exact Location of Capture", "type": "textMulti", "required": "true" },
+            { "key": "GPS Coordinates:", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true },
+            { "key": "Habitat:", "id": "habitat", "placeholder": "Habitat", "type": "select", "required": true, "options": "habitat" },
+            { "key": "Habitat (Other):", "id": "habitatOther", "placeholder": "Habitat (If Other)", "type": "text", "required": false },
+            { "key": "Microhabitat (under a rock/coverboard, in a stump hole, rocks near dam or lake):", "id": "microhabitat", "placeholder": "Microhabitat (Under a rock/coverboard, in a stump hole, rocks near dam or lake)", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Conditions", "fields": [
+            { "key": "Air Temperature:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+            { "key": "Days since last rainfall:", "id": "sinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+            { "key": "Relative Humidity (%):", "id": "relativeHumidity", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+            { "key": "Sky Conditions:", "id": "skyIndex", "placeholder": "Sky Conditions", "type": "select", "required": true, "options": "skyIndex" },
+            { "key": "Wind Conditions:", "id": "windCode", "placeholder": "Wind Conditions", "type": "select", "required": true, "options": "windConditions" }
+        ]},
+        { "name": "Observations", "fields": [
+            { "key": "Sex:", "id": "sex", "placeholder": "Sex", "type": "select", "required": true, "options": "gender" },
+            { "key": "Take photo:", "id": "photo", "placeholder": "Photo", "type": "image", "required": false },
+            { "key": "Description of any injuries, defects or parasites:", "id": "injuries", "placeholder": "Description of any injuries, defects, or parasites", "type": "textMulti", "required": false },
+            { "key": "Notes (what was the animal doing when you found it, behavior, etc.):", "id": "notes", "placeholder": "Notes (what was the animal doing when you found it, behavior, etc.)", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Measurements", "fields": [
+            { "key": "Mass (g):", "id": "mass", "placeholder": "Mass", "type": "measure", "required": true, "options": "gWeight" },
+            { "key": "SVL (mm):", "id": "svl", "placeholder": "Snout-Vent Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Tail Length (mm):", "id": "taillength", "placeholder": "Tail Length", "type": "measure", "required": true, "options": "mmLength" }
+        ]}
+    ]},
+
+
+    { "name": "Snake", "id": "snake", "pages": [
+        { "name": "Info", "fields": [
+            { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "snake", "hasDependent": true },
+            { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "snake" },
+            { "key": "Confidence level of species identification:", "id": "confidenceIdentification", "placeholder": "Confidence Level of Species ID", "type": "select", "required": true, "options": "confidenceLevel" },
+            { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true, "hasDependent": true },
+            { "key": "Time:", "id": "time", "placeholder": "Time", "type": "time", "required": true },
+            { "key": "Day of Week:", "id": "dayOfWeek", "placeholder": "Day of the Week", "type": "select", "required": true, "options": "dayOfWeek" },
+            { "key": "Observer(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+            { "key": "Capture Method:", "id": "capture", "placeholder": "Capture Method", "type": "select", "required": true, "options": "captureMethodSnake" },
+            { "key": "Capture Method (Other):", "id": "captureMethodOther", "placeholder": "Capture Method (If Other)", "type": "text", "required": false },
+            { "key": "Status:", "id": "status", "placeholder": "Status", "type": "select", "required": true, "options": "status" }
+        ]},
+        { "name": "Location", "fields": [
+            { "key": "Exact Location of Capture", "id": "areaDesc", "placeholder": "Exact Location of Capture", "type": "textMulti", "required": "true" },
+            { "key": "GPS Coordinates:", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true },
+            { "key": "Habitat:", "id": "habitat", "placeholder": "Habitat", "type": "select", "required": true, "options": "habitat" },
+            { "key": "Habitat (Other):", "id": "habitatOther", "placeholder": "Habitat (If Other)", "type": "text", "required": false },
+            { "key": "Microhabitat (under a rock/coverboard, in a stump hole, rocks near dam or lake):", "id": "microhabitat", "placeholder": "Microhabitat (Under a rock/coverboard, in a stump hole, rocks near dam or lake)", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Conditions", "fields": [
+            { "key": "Air Temperature:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+            { "key": "Days since last rainfall:", "id": "sinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+            { "key": "Relative Humidity (%):", "id": "relativeHumidity", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+            { "key": "Sky Conditions:", "id": "skyIndex", "placeholder": "Sky Conditions", "type": "select", "required": true, "options": "skyIndex" },
+            { "key": "Wind Conditions:", "id": "windCode", "placeholder": "Wind Conditions", "type": "select", "required": true, "options": "windConditions" }
+        ]},
+        { "name": "Observations", "fields": [
+            { "key": "Sex of Snake:", "id": "sex", "placeholder": "Sex", "type": "select", "required": true, "options": "gender" },
+            { "key": "Gravid?", "id": "gravid", "placeholder": "Gravid?", "type": "select", "required": true, "options": "gravid" },
+            { "key": "Life Stage:", "id": "lifeStage", "placeholder": "Life Stage", "type": "select", "required": true, "options": "lifeStage" },
+            { "key": "Take photo:", "id": "photo", "placeholder": "Photo", "type": "image", "required": true },
+            { "key": "Descriptions of any injuries, defects or parasites:", "id": "injuries", "placeholder": "Description of any injuries, defects, or parasites", "type": "textMulti", "required": false },
+            { "key": "Notes (what was the animal doing when you found it, behavior, etc.):", "id": "notes", "placeholder": "Notes (What was the animal doing when you found it, behavior, etc.)", "type": "textMulti", "required": false }
+        ]},
+        { "name": "Measurements", "fields": [
+            { "key": "Weight (g):", "id": "weight", "placeholder": "Weight", "type": "measure", "required": true, "options": "gWeight" },
+            { "key": "Total Length, measured by stretch method (mm):", "id": "lengthTotal", "placeholder": "Total Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Estimated Length (mm):", "id": "lengthEstimated", "placeholder": "Estimated Length", "type": "measure", "required": true, "options": "mmLength" },
+            { "key": "Method of Estimation:", "id": "methodMeasuring", "placeholder": "Method Used for Measuring Length", "type": "select", "required": true, "options": "measuringMethod" }
+        ]}
+    ]},
+
+
+    { "name": "Frog Call", "id": "frogCall", "pages": [
+        { "name": "Start", "pages": [
+            { "name": "Info", "fields": [
+                { "key": "Oberserver's Name(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+                { "key": "Number in party:", "id": "number", "placeholder": "Number in Party", "type": "measure", "required": true, "options": "void" },
+                { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true },
+                { "key": "locationHeader", "id": "locationHeader", "placeholder": "Location of Survey", "type": "header" },
+                { "key": "County:", "id": "county", "placeholder": "County", "type": "text", "required": true },
+                { "key": "Site Name:", "id": "site", "placeholder": "Site Name", "type": "text", "required": true },
+                { "key": "State:", "id": "state", "placeholder": "State", "type": "select", "options": "state", "required": true }
+            ]},
+            { "name": "Start Params", "fields": [
+                { "key": "environmentHeader", "id": "environmentHeader", "placeholder": "Environmental Parameters at Start of Run", "type": "header" },
+                { "key": "Beginning Time:", "id": "beginning", "placeholder": "Time at Start", "type": "time", "required": true },
+                { "key": "Air Temp:", "id": "air", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+                { "key": "Relative Humidity (%):", "id": "relative", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "wind", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "sky", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" },
+                { "key": "Rain in past 24 hours (mm):", "id": "rain", "placeholder": "Rain in the Past 24hrs", "type": "measure", "required": true, "options": "mmRain" },
+                { "key": "Number of days since last rainfall:", "id": "daysSinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+                { "key": "Moon Phase", "id": "moon", "placeholder": "Moon Phase", "type": "select", "required": true, "options": "moonPhase" }
+            ]}
+        ]},
+        { "name": "Add", "pages": [
+            { "name": "Stop", "fields": [
+                { "key": "instructionsHeader", "id": "instructionsHeader", "placeholder": "At each stop listen for the appropriate amount of time (recording start time), then record the location and air temperature, the amphibian calling index for each species heard, and whether moonlight was visible or not", "type": "header" },
+                { "key": "Time", "id": "startTime", "placeholder": "Recording Start Time", "type": "time", "required": true },
+                { "key": "Recording", "id": "recording", "placeholder": "Sound Recording", "type": "sound", "required": false },
+                { "key": "Location", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true },
+                { "key": "Moon", "id": "moonlight", "placeholder": "Moon or Moonlight Visible?", "type": "select", "required": true, "options": "yesNoUnsure" },
+                { "key": "Temp", "id": "temp", "placeholder": "Air Temperature", "type": "temperature", "required": true }
+            ]},
+            { "name": "Species Heard", "listKey": "Species", "fields": [
+                { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "frog", "hasDependent": true },
+                { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "frog" },
+                { "key": "Calling Index:", "id": "callingIndex", "placeholder": "Calling Index", "type": "select", "required": true, "options": "callingIndex" }
+            ]}
+        ]},
+        { "name": "End", "pages": [
+            { "name": "End Params", "fields": [
+                { "key": "environmentHeader", "id": "environmentHeader", "placeholder": "Environmental Parameters at End of Run", "type": "header", "required": false },
+                { "key": "Air Temp:", "id": "air", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+                { "key": "Relative Humidity (%):", "id": "relative", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "wind", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "sky", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" }
+            ]}
+        ]}
+    ]},
+
+
+    { "name": "Aquatic Habitat Data", "id": "aquaticHabitatData", "pages": [
+        { "name": "Start", "pages": [
+            { "name": "Info", "fields": [
+                { "key": "Observer's Name(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+                { "key": "Number in party:", "id": "number", "placeholder": "Number in Party", "type": "measure", "required": true, "options": "void" },
+                { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true },
+                { "key": "locationHeader", "id": "locationHeader", "placeholder": "Location of Body of Water", "type": "header" },
+                { "key": "County:", "id": "county", "placeholder": "County", "type": "text", "required": true },
+                { "key": "Site Name:", "id": "site", "placeholder": "Site Name", "type": "text", "required": true },
+                { "key": "State:", "id": "state", "placeholder": "State", "type": "select", "options": "state", "required": true },
+                { "key": "GPS Coordinates:", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true }
+            ]},
+            { "name": "Start Params", "fields": [
+                { "key": "Time at Start:", "id": "startTime", "placeholder": "Time at Start", "type": "time", "required": true },
+                { "key": "Relative Humidity (%):", "id": "humidity", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "windCode", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "skyCode", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" },
+                { "key": "Rain in past 24 hours (mm):", "id": "rain", "placeholder": "Rain in the Past 24 hrs", "type": "measure", "required": true, "options": "mmRain" },
+                { "key": "Number of days since last rainfall:", "id": "daysSinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+                { "key": "Air Temp:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+                { "key": "Max Air Temp (in past 24 hours):", "id": "maxAirTemp", "placeholder": "Max Air Temperature (Past 24 hrs)", "type": "temperature", "required": true },
+                { "key": "Min Air Temp (in past 24 hours):", "id": "minAirTemp", "placeholder": "Min Air Temperature (Past 24 hrs)", "type": "temperature", "required": true },
+                { "key": "Ground Temerature (top 3cm):", "id": "groundTemp", "placeholder": "Ground Temperature (Top 3cm)", "type": "temperature", "required": true },
+                { "key": "Surface Water Temperature:", "id": "surfaceTemp", "placeholder": "Surface Water Temperature", "type": "temperature", "required": true },
+                { "key": "Aquatic Sampling pH:", "id": "ph", "placeholder": "Aquatic Sampling pH", "type": "measure", "required": true, "options": "void" }
+            ]}
+        ]},
+        { "name": "Add", "pages": [
+            { "name": "Trap", "fields": [
+                { "key": "Capture Method:", "id": "captureMethod", "placeholder": "Capture Method", "type": "select", "required": true, "options": "captureMethodTrap" },
+                { "key": "Capture Method (Other)", "id": "captureMethodOther", "placeholder": "Capture Method (If Other)", "type": "text", "required": false },
+                { "key": "Trap Number:", "id": "trapNumber", "placeholder": "Trap Number", "type": "text", "required": false },
+                { "key": "Baited:", "id": "baited", "placeholder": "Baited", "type": "select", "required": true, "options": "yesNo" },
+                { "key": "Type of Bait:", "id": "typeOfBait", "placeholder": "Type of Bait", "type": "text", "required": false },
+                { "key": "Trap Notes (please explain the nature of your trap types and/or condition", "id": "trapNotes", "placeholder": "Trap Notes (Please explain the nature of your trap types and/or condition)", "type": "textMulti", "required": false }
+            ]},
+            { "name": "Salamander", "listKey": "salamanders", "fields": [
+                { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "salamander", "hasDependent": true },
+                { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "salamander" },
+                { "key": "Age Class:", "id": "ageClass", "placeholder": "Age Class", "type": "select", "required": true, "options": "ageClass" },
+                { "key": "Length:", "id": "length", "placeholder": "Total Length", "type": "measure", "required": true, "options": "mmLength" },
+                { "key": "Weight:", "id": "mass", "placeholder": "Mass", "type": "measure", "required": true, "options": "gWeight" },
+                { "key": "Sex:", "id": "sex", "placeholder": "Sex", "type": "select", "required": true, "options": "gender" },
+                { "key": "Legs:", "id": "legs", "placeholder": "Number of Legs", "type": "measure", "required": true, "options": "void" },
+                { "key": "Gills:", "id": "gills", "placeholder": "Gills Present", "type": "select", "required": true, "options": "present" }
+            ]},
+            { "name": "Frog", "listKey": "Frogs", "fields": [
+                { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "frog", "hasDependent": true },
+                { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "frog" },
+                { "key": "Age Class:", "id": "ageClass", "placeholder": "Age Class", "type": "select", "required": true, "options": "ageClass" },
+                { "key": "Legs:", "id": "legs", "placeholder": "Number of Legs", "type": "measure", "required": true, "options": "void" }
+            ]},
+            { "name": "Macroinvertebrate", "listKey": "Macroinvertebrates", "fields": [
+                { "key": "Species:", "id": "species", "placeholder": "Species", "type": "text", "required": true },
+                { "key": "Number:", "id": "numberObserved", "placeholder": "Number Observed", "type": "measure", "required": true, "options": "void" }
+            ]},
+            { "name": "Other", "fields": [
+                { "key": "Other Animals:", "id": "otherAnimals", "placeholder": "Other Animals", "type": "textMulti", "required": false }
+            ]}
+        ]},
+        { "name": "End", "pages": [
+            { "name": "End Params", "fields": [
+                { "key": "Air Temp:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+                { "key": "Relative Humidity (%):", "id": "humidity", "placeholder": "Relative Humidty", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "windCode", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "skyCode", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" }
+            ]}
+        ]}
+    ]},
+
+
+    { "name": "Field Data", "id": "fieldData", "pages": [
+        { "name": "Start", "pages": [
+            { "name": "Info", "fields": [
+                { "key": "Observer's Name(s):", "id": "observers", "placeholder": "Observer(s)", "type": "text", "required": true },
+                { "key": "Number in party:", "id": "number", "placeholder": "Number in Party", "type": "measure", "required": true, "options": "void" },
+                { "key": "Date:", "id": "date", "placeholder": "Date", "type": "date", "required": true },
+                { "key": "locationHeader", "id": "locationHeader", "placeholder": "Location of Survey", "type": "header", "required": true },
+                { "key": "County:", "id": "county", "placeholder": "County", "type": "text", "required": true },
+                { "key": "Site Name:", "id": "site", "placeholder": "Site Name", "type": "text", "required": true },
+                { "key": "State:", "id": "state", "placeholder": "State", "type": "select", "options": "state", "required": true }
+            ]},
+            { "name": "Start Params", "fields": [
+                { "key": "Time at Start:", "id": "startTime", "placeholder": "Time at Start", "type": "time", "required": true },
+                { "key": "Relative Humidity (%):", "id": "humidity", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "windCode", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "skyCode", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" },
+                { "key": "Rain in past 24 hours (mm):", "id": "rain", "placeholder": "Rain in the Past 24 hrs", "type": "measure", "required": true, "options": "mmRain" },
+                { "key": "Number of days since last rainfall:", "id": "daysSinceRain", "placeholder": "Days Since Last Rainfall", "type": "measure", "required": true, "options": "days" },
+                { "key": "Air Temp:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true },
+                { "key": "Ground Temerature (top 3cm):", "id": "groundTemp", "placeholder": "Ground Temperature (Top 3cm)", "type": "temperature", "required": true }
+            ]}
+        ]},
+        { "name": "Add", "pages": [
+            { "name": "Data", "fields": [
+                { "key": "organismHeader", "id": "organismHeader", "placeholder": "Organism Information", "type": "header" },
+                { "key": "Type:", "id": "organism", "placeholder": "Type", "type": "select", "required": true, "options": "organism" },
+                { "key": "Common Name:", "id": "commonName", "placeholder": "Common Name", "type": "commonName", "required": true, "options": "conditional", "conditional": "Type:", "hasDependent": true },
+                { "key": "Scientific Name:", "id": "scientificName", "placeholder": "Scientific Name", "type": "scientificName", "required": true, "options": "conditional", "conditional": "Type:" },
+                { "key": "Weight (g):", "id": "weight", "placeholder": "Weight", "type": "measure", "required": true, "options": "gWeight" },
+                { "key": "Snout-Vent Length [SVL] (mm):", "id": "length", "placeholder": "Length", "type": "measure", "required": true, "options": "mmLength" },
+                { "key": "lengthHeader1", "id": "lengthHeader1", "placeholder": "Frog/Lizard/Sal: Snout Vent Length", "type": "header" },
+                { "key": "lengthHeader2", "id": "lengthHeader2", "placeholder": "Snake: Total Length", "type": "header" },
+                { "key": "Age Class", "id": "ageClass", "placeholder": "Age Class", "type": "select", "required": true, "options": "lifeStage" },
+                { "key": "GPS Coordinates", "id": "gps", "placeholder": "GPS Coordinates", "type": "gps", "required": true },
+                { "key": "Take Photo", "id": "photo", "placeholder": "Photo", "type": "image", "required": false },
+                { "key": "Comments", "id": "comments", "placeholder": "Additional Comments", "type": "textMulti", "required": false }
+            ]}
+        ]},
+        { "name": "End", "pages": [
+            { "name": "End Params", "fields": [
+                { "key": "Time at End:", "id": "endTime", "placeholder": "Time at End", "type": "time", "required": true },
+                { "key": "Relative Humidity (%):", "id": "humidity", "placeholder": "Relative Humidity", "type": "measure", "required": true, "options": "percent" },
+                { "key": "Wind Code:", "id": "windCode", "placeholder": "Wind Code", "type": "select", "required": true, "options": "windConditions" },
+                { "key": "Sky Code:", "id": "skyCode", "placeholder": "Sky Code", "type": "select", "required": true, "options": "skyCode" },
+                { "key": "Air Temp:", "id": "airTemp", "placeholder": "Air Temperature", "type": "temperature", "required": true }
+            ]}
+        ]}
+    ]}
+]}
