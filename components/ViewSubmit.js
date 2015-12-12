@@ -396,37 +396,6 @@ class ViewSubmit extends Component {
             this.setState({ isUploading: false });
             console.log(err);
         });
-
-
-        /*fetch(this.state.postURL + this.state.postTarget, {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'multipart/form-data; boundary=6ff46e0b6b5418d894f148b6542e5a5d'
-            },
-            body: data
-        })
-        .then((response) => {
-            console.log(response._bodyText);
-            if(response._bodyText == 'success') {
-                var progress = this._updateProgress(.7);
-                var isSuccess = (progress == 1);
-
-                this.setState({
-                    progress: progress,
-                    isUploading: !isSuccess,
-                    isSuccess: isSuccess
-                });
-            }
-            else {
-                this.setState({ isUploading: false });
-            }
-        })
-        .catch((err) => {
-            //stop uploading screen when an error occurs
-            this.setState({ isUploading: false });
-            console.log(err);
-        });*/
     }
 
     _formatData(form, rawData) {
