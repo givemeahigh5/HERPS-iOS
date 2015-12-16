@@ -10,6 +10,7 @@ var React = require('react-native');
 var RNFS = require('react-native-fs');
 var Button = require('./Button');
 var TextInputRegular = require('./input/TextInputRegular');
+var DATASTORE = require('../assets/metadata/Datastore.json');
 
 var {
     StyleSheet,
@@ -55,6 +56,9 @@ var styles = StyleSheet.create({
     }
 });
 
+//2 Options:
+// 1 - figure out how to format the body without formdata
+// 2 - bypass fetch and use a direct xhr request
 
 
 class ViewSubmit extends Component {
@@ -64,11 +68,10 @@ class ViewSubmit extends Component {
         //this.props.data: array of entity objects
 
         this.state = {
-            //postURL: 'http://herp-dev.appspot.com',
-            //postURL: 'http://nc-herps.appspot.com',
-            postURL: 'http://localhost:8080',
-            postTarget: '/upload-ios',
-            requestTarget: '/create-upload-url',
+            postURL: DATASTORE.urlDev2,
+            postTarget: DATASTORE.postTarget,
+            requestTarget: DATASTORE.requestTarget,
+            requestRedirect: DATASTORE.requestRedirect,
             name: '',
             email: '',
             isVerifiedUser: false,
@@ -179,10 +182,12 @@ class ViewSubmit extends Component {
 
     _fieldName(field, submitRecord) {
         var fieldName = field;
+        //var fieldName = field.replace(/ /g, '-');
         var i = 1;
 
         while(submitRecord.hasOwnProperty(fieldName)) {
             fieldName = field + ' (' + (++i) + ')';
+            //fieldName = field.replace(/ /g, '-') + '-(' + (++i) + ')';
         }
 
         return fieldName;
@@ -338,61 +343,88 @@ class ViewSubmit extends Component {
     }
 
     _updateProgress(addition) {
-        var currentProgress = Number(parseFloat(this.state.progress).toFixed(3));
+        var currentProgress = Number(parseFloat(this.state.progress).toFixed(4));
         var totalRecords = parseFloat(this.state.records);
 
-        var progress = Number(((currentProgress * totalRecords + addition) / totalRecords).toFixed(3));
+        var progress = Number(((currentProgress * totalRecords + addition) / totalRecords).toFixed(4));
         return progress;
     }
 
-    _doPost(data) {
-        //set progress bar
-        this.setState({ progress: this._updateProgress(.3)});
+    _doPostFiles(data) {
+        this.setState({ progress: this._updateProgress(.25)});
 
         //set formdata for initial url request
         var requestData = new FormData();
-        requestData.append('target', this.state.postTarget);
+        requestData.append('target', this.state.requestRedirect);
 
         //post to server
-        fetch(this.state.postURL + this.state.requestTarget, {
+        return fetch(this.state.postURL + this.state.requestTarget, {
             method: 'POST',
-            body:  requestData
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data; boundary=---------------------------7da24f2e50046'
+            },
+            body: requestData
         })
         .then((response) => {
             //if response contains a valid blobstore upload url, post the formdata to that url
-            if(response._bodyText != 'fail') {
+            if(response._bodyText != null && response._bodyText != 'fail') {
                 return fetch(response._bodyText, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',
-                        'Content-Type': 'multipart/form-data; boundary=6ff46e0b6b5418d894f148b6542e5a5d'
+                        'Content-Type': 'multipart/form-data; boundary=---------------------------7da24f2e50046'
                     },
                     body: data
                 });
             }
             else {
                 console.log('something went wrong');
-                return null;
+                this.setState({ isUploading: false });
+                return;
             }
         })
         .then((response) => {
-            //update the component state and progress bar
-            if(response._bodyText == 'success') {
-                var progress = this._updateProgress(.7);
-                var isSuccess = (progress == 1);
+            //this should be json data
+            if(response._bodyText != 'fail') {
+                this.setState({ progress: this._updateProgress(.25)});
 
-                this.setState({
-                    progress: progress,
-                    isUploading: !isSuccess,
-                    isSuccess: isSuccess
-                });
+                return response;
             }
             else {
                 this.setState({ isUploading: false });
             }
         })
         .catch((err) => {
-            //stop uploading screen when an error occurs
+            this.setState({ isUploading: false });
+            console.log(err);
+        });
+
+    }
+
+    _doPost(data) {
+        this.setState({ progress: this._updateProgress(.25)});
+
+        return fetch(this.state.postURL + this.state.postTarget, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data; boundary=---------------------------7da24f2e50046'
+            },
+            body: data
+        })
+        .then((response) => {
+            //update the component state and progress bar
+            if(response._bodyText == 'success') {
+                this.setState({ progress: this._updateProgress(.25)});
+            }
+            else {
+                this.setState({ isUploading: false });
+            }
+
+            return;
+        })
+        .catch((err) => {
             this.setState({ isUploading: false });
             console.log(err);
         });
@@ -417,33 +449,50 @@ class ViewSubmit extends Component {
     }
 
     _uploadRecord(form, record) {
-        var data = new FormData();
 
-        //set category and user for entity
-        data.append('form', form);
-        data.append('Uploader Email', this.state.email);
-        data.append('Uploader Name', this.state.name);
+        var fileData = new FormData();
 
-        //loop through records; append each as key/value pair (files use path as value)
-        for(var key in record) {
-            if(record.hasOwnProperty(key)) {
-                data.append(key, record[key]);
-            }
-        }
-
-        //get list of image paths and append each as separate entries
         var imageURIs = this._fileURIs(record, '.jpg');
         for(var i=0; i < imageURIs.length; i++) {
-            data.append(imageURIs[i], {uri: imageURIs[i], name: imageURIs[i], type: 'image/jpg'});
+            fileData.append(imageURIs[i], {uri: imageURIs[i], name: imageURIs[i], type: 'image/jpg'});
         }
 
-        //get list of sound paths and append each as separate entries
         var soundURIs = this._fileURIs(record, '.caf');
         for(var i=0; i < soundURIs.length; i++) {
-            data.append(soundURIs[i], {uri: soundURIs[i], name: soundURIs[i], type: 'audio/aiff'});
+            fileData.append(soundURIs[i], {uri: soundURIs[i], name: soundURIs[i], type: 'audio/aiff'});
         }
 
-        this._doPost(data);
+        this._doPostFiles(fileData)
+        .then((response) => {
+            var fileKeys = response.status == 200 ? JSON.parse(response._bodyText) : {};
+
+            var data = new FormData();
+
+            //set category and user for entity
+            data.append('form', form);
+            data.append('Uploader Email', this.state.email);
+            data.append('Uploader Name', this.state.name);
+
+            //loop through records; append each as key/value pair (files use path as value)
+            for(var key in record) {
+                if(record[key].contains('.jpg') || record[key].contains('.caf')) {
+                    data.append(key, "BlobKey:" + fileKeys[record[key]]);
+                }
+                else {
+                    data.append(key, record[key]);
+                }
+            }
+
+            return this._doPost(data);
+        })
+        .then((response) => {
+            var isSuccess = (this.state.progress >= .99);
+
+            this.setState({
+                isUploading: !isSuccess,
+                isSuccess: isSuccess
+            });
+        });
     }
 
     _uploadForm(form, rawData) {
