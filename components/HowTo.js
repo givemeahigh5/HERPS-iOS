@@ -65,7 +65,6 @@ class HowTo extends Component {
     }
 
     onPress(url) {
-        console.log(url);
         LinkingIOS.openURL(url);
     }
 

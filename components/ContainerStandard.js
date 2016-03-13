@@ -84,7 +84,7 @@ class ContainerStandard extends Component {
                 this._initializeFields(pages[i].fields);
             }
             else {
-                console.log('Error: Couldn\'t Initialize Form');
+                //console.log('Error: Couldn\'t Initialize Form');
             }
         }
     }
@@ -272,7 +272,7 @@ class ContainerStandard extends Component {
                 component = <ContainerFrogCall {...props} {...fieldDataProps} />;
             }
             else {
-                console.log('Error loading form.');
+                //console.log('Error loading form.');
             }
         }
         else {

@@ -6,7 +6,6 @@ var Welcome = require('./components/Welcome');
 var {
     StyleSheet,
     Component,
-    Navigator,
     NavigatorIOS
 } = React;
 
@@ -16,13 +15,11 @@ var styles = StyleSheet.create({
     }
 });
 
-//update navigator styles
-//change pages style to only edit text and subtext, NOT row bg color
 
 
 class HerpProjectApp extends Component {
     render() {
-        
+
         return (
             <NavigatorIOS
                 style={styles.container}

@@ -96,7 +96,7 @@ class ContainerFrogCall extends Component {
                 this.props.fieldChanged('end', fields);
             }
             else {
-                console.log('Error: Subform not found; nothing saved.');
+                //console.log('Error: Subform not found; nothing saved.');
             }
         }
 

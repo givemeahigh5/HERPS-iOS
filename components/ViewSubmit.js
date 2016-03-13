@@ -68,7 +68,7 @@ class ViewSubmit extends Component {
         //this.props.data: array of entity objects
 
         this.state = {
-            postURL: DATASTORE.urlDev2,
+            postURL: DATASTORE.url,
             postTarget: DATASTORE.postTarget,
             requestTarget: DATASTORE.requestTarget,
             requestRedirect: DATASTORE.requestRedirect,
@@ -379,7 +379,7 @@ class ViewSubmit extends Component {
                 });
             }
             else {
-                console.log('something went wrong');
+                //console.log('something went wrong');
                 this.setState({ isUploading: false });
                 return;
             }
@@ -397,7 +397,7 @@ class ViewSubmit extends Component {
         })
         .catch((err) => {
             this.setState({ isUploading: false });
-            console.log(err);
+            //console.log(err);
         });
 
     }
@@ -426,7 +426,7 @@ class ViewSubmit extends Component {
         })
         .catch((err) => {
             this.setState({ isUploading: false });
-            console.log(err);
+            //console.log(err);
         });
     }
 
